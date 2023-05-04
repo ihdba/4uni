@@ -1,0 +1,20 @@
+{% block navbar %}
+<nav class="header__nav">
+    <div class="nav__top">
+      <h2 class="logo">4Uniflow <span class="logo__span">Become master of your time</span></h2>
+    </div>
+
+    <div class="nav__bottom">
+      <ul>
+        <li><a href="{% url 'home' %}"> Home</a></li>
+        <li><a href="{% url 'projects' %}">Projects</a></li>
+        <li><a href="{% url 'partners' %}">Partners</a></li>
+        <li><a href="{% url 'eshop' %}">E-shop</a></li>
+      </ul>
+    </div>
+
+    <div class="nav__btn">
+      <button class="btn" type="button">Become Partner</button>
+    </div>
+  </nav>
+  {% endblock navbar %}
