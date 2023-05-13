@@ -1,0 +1,16 @@
+{% extends 'core/base.html' %}
+
+
+
+{% block content %}
+    <h2>Our Suppliers</h2>
+    {% for supplier in object_list %}
+        <div>
+            <h2>{{ supplier.supplier_name }}</h2>
+            <p>{{ supplier.email }}</p>
+        </div>
+    {% endfor %}
+    <a href="{% url 'add_supplier' %}">Add new Supplier</a>
+    <a href="{% url 'eshop' %}">Eshop</a>
+{% endblock content %}
+

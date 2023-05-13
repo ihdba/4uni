@@ -1,0 +1,20 @@
+{% extends 'core/base.html' %}
+
+
+
+{% block content %}
+
+    <form method="POST" action="{% url 'product_detail' product.id %}">
+        {% csrf_token %}
+        <textarea name="description">{{product.product_description}}</textarea>
+        <input type="submit" value="Save Changes" />
+    </form>
+
+    <hr>
+    <a href="{% url 'delete_product' product.id %}">Delete Products</a>
+    
+
+    <a href="{% url 'eshop' %}">Back to All Products</a>
+
+{% endblock content %}
+

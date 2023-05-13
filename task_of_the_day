@@ -1,0 +1,13 @@
+
+
+Create interface for ux_ui features.
+
+-- Legend: attributes I call all the colors, fornts and other designing features
+-- that will be used in UX UI
+
+Model for feature and values
+
+Display table with feature / value 
+
+form for adding new feature and value
+

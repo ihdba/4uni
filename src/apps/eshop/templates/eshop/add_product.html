@@ -1,0 +1,14 @@
+{% extends 'core/base.html' %}
+
+
+{% block content %}
+    <h1>Add New Product</h1>
+    <form method="POST" action="/">
+        {% csrf_token %}
+        <textarea name="product_name"></textarea>
+        <textarea name="product_description"></textarea>
+        <textarea name="price"></textarea>
+        <textarea name="supplier"></textarea>
+        <input type="submit" value="Add Product " />
+    </form>
+{% endblock content %}

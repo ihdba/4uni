@@ -1,0 +1,42 @@
+
+
+.nav_container {
+	display: flex;
+	margin-bottom: 20px;
+	/* background-color: #2C3539; */
+	height: 80px;
+	align-items: center;
+	color: blue;
+}
+
+
+.jcsb{
+	justify-content: space-between;
+}
+
+
+
+.nav_container ul li {
+	list-style: none;
+	display: inline;
+	margin-left: 10px;
+}
+
+.nav_item {
+	
+}
+
+.nav_logo{
+	margin-left: 20px;
+	
+}
+
+.nav_status{
+	margin-right: 20px;
+}
+
+.icons{
+	width: 25px;
+	height: auto;
+}
+

@@ -1,0 +1,24 @@
+Simple test with nano editor
+
+ Custom Django
+In this tutorial, we show how you can take your Django project live with a server on DigitalOcean.
+
+https://justdjango.com
+☝ Get exclusive courses & become a better Django developer
+
+💻 Project code: https://github.com/justdjango/dream_blog
+
+💰 $100 of DigitalOcean credit: 
+https://m.do.co/c/ebbd15153a5e
+
+Link to the DigitalOcean deployment tutorial: https://www.digitalocean.com/communit...
+
+✌️ Stay in touch
+
+Facebook: https://www.facebook.com/justdjangocode
+Instagram: https://www.instagram.com/justdjangocode
+Twitter: https://www.twitter.com/justdjangocode
+Email: admin@justdjango.com
+
+Thank you for watching and don't forget to subscribe :)
+

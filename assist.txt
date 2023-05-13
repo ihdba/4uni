@@ -1,0 +1,374 @@
+ToDo - Build E-comerce site using Django 4.1.7 and Vue.js
+
+** Part 1 - Django **
+
+- Create a virtual environment
+- Install Django and create a project
+- Set up the database
+- Create a superuser
+- Create a forlder for Django apps
+- Create folder and Django app for the core views (apps/core)
+- Create the base template
+- Create view for the frontpage and very basic template
+- Check tha t everything is working
+
+
+*** From a previous Project
+
+
+
+-DONE Install virtual env and Django
+			python3 -m venv deli
+			-- start venv
+			source deli/bin/activate
+			-- install Django
+			pip install django
+			-- create django project
+			django-admin startproject synergy
+-DONE Install psycopg2 for connecting to Postgresql database
+			pip install psycopg2
+--DONE	Create environmental variable to keep sensitive data
+			pip install python-dotenv
+			touch .env
+			echo .env >> .gitignore
+
+--DONE	Add to setting import of the .env file
+				import os
+				from dotenv import load_dotenv
+				load_dotenv()
+--DONE	Create PostgreSQL database and admininstrator user
+				psql (to start client)
+				create database deli;
+				create user admindeli with encrypted password 'admindeli';
+				grant all privileges on database deli to admindeli;
+
+--DONE Edit settings file the database engine
+				-- to find out which port run
+				-- SELECT * FROM pg_settings WHERE name = 'port';
+
+
+				DATABASES = {
+        'default': {
+            'ENGINE': 'django.db.backends.postgresql',
+            'NAME': os.getenv('DB_NAME'),
+            'USER': os.getenv('DB_USER'),
+            'PASSWORD': os.getenv('PWD'),
+            'HOST': '127.0.0.1', 
+            'PORT': os.getenv('DB_PORT'),
+        }
+    	}
+
+--DONE 	Create superuser for the database
+
+				-- first migrate to the DB engine that will be used,
+				python manage.py migrate
+				-- then run
+				python manage.py createsuperuser admin/uniadmin
+
+
+
+--DONE  create folder for all the apps of the project
+
+--DONE Create apps/core folder for the core app
+
+--DONE	Create core app for the project and register it
+
+    python manage.py startapp core apps/core
+				
+--DONE Add in settings under INSTALLED_APPS  aps.core
+
+--DONE Under apps/core in apps.py edit name='core' to name='apps.core'
+    ** With django 3.1/3.2 and up, you're required to fully qualify the name: so it is apps.core
+--DONE  create templates forlder in apps/core				
+--DONE  Create base.html  in apps/core/templates
+--DONE Create frontpage.html in apps/core/templates
+
+
+
+****** PART 2 *******
+
+--DONE Create folder and app fro the store app
+    mkdir apps/store
+    python manage.py startapp store apps/store
+--DONE Get list of products and show on the frontpage
+--DONE  Show detail view for a product
+--DONE  Show categories in the menu
+--DONE Show detail view for a category (Title and list related products)
+
+
+
+***** PART 3 ********
+
+--DONE Create footer and move "Contact" link down
+--DONE Create an About Page
+--DONE Make it possible to set ordering for the categories in the menu
+--DONE Add ordering for products, newest first
+--DONE Only show featured products on the frontpage
+--DONE Create folder and App for the cart
+--DONE  Create a view for the cart and show link in the menu
+
+
+****** PART 4 ********@
+
+--DONE Rename cart view to cart_detail
+--DONE Add two settings for the cart in the settings file
+--DONE Create a Cart class
+--DONE  Make it possible to add products to the cart
+--DONE Make it possible to remove products from the cart
+
+
+
+****** PART 5 *****
+--DONE Show quantity and price in the cart
+--DONE Update quantity
+--DONE More Vue.js in the cart (automatically remove products, ets)
+-- Show cart in the menu (with quantity)
+
+
+
+
+
+***** VUE API *****
+
+
+
+
+
+
+
+
+
+
+-- Install django-cors-headers (https://pypi.org/project/django-cors-...
+				pip install django-cors-headers
+
+				-- add to settings.py
+				'corsheaders',
+
+				-- Add to MIDDLEWARE
+				-- CorsMiddleware should be placed as high as possible, 
+				-- especially before any middleware that can generate responses such as CommonMiddleware
+
+				'corsheaders.middleware.CorsMiddleware',
+    		'django.middleware.common.CommonMiddleware',
+
+				-- add to settings.py allowed sites that can contact django project
+					 CORS_ALLOWED_ORIGINS = [
+							"http://localhost:8000", -- django project port
+							"http://127.0.0.1:9000", -- or any other port your client is listening to
+					]
+
+--	Install djangorestframework for serialization and API
+
+				pip install djangorestframework
+
+				-- add to settings 
+				'rest_framework',
+
+
+
+-Create serializers and views for the products
+			-- create serializers.py file in you arr foilder
+
+
+
+	-Create viewset in Django
+	-- Pagination
+	-Create vue page for showing the product
+	-Add link to detail page
+
+
+*** Front End ***
+
+
+-Install and setup Vue/NUXT
+npm init nuxt-app 4uniflow
+
+To get started:
+
+	cd 4uniflow
+	npm run dev
+
+  To build & start for production:
+
+	cd 4uniflow
+	npm run build
+	npm run start
+
+	http:// localhost:3000
+	
+-Include FontAwesome
+-Set up the base template
+
+-Set up Vuex / State
+-Make it possible to add to card
+		-Add functionality to Vuex
+		-Initialize store in app.vue
+		-Add button to product page
+		-Show a toast message
+-Implement a loading bar
+-Set document tile (All pages)
+-Make it possible to view a category
+	-Convert the product to a Component
+-Add search functionality
+-View cart.
+	-A cart item should be a Component
+-Change contents of the cart.	
+	-Increment/decrement content.
+	-Remove from the cart
+-Proceed to checkout (Authentication)
+-Create a simple success page
+-Show my orders on the same account page	
+	-An order should be a component.
+-Make it possible to sign up
+-Make it possible to log in-Create a simple account page
+
+
+
+CORS_ALLOWED_ORIGINS = [
+    "http://localhost:8080",
+]
+
+
+***
+
+Good Links
+
+-- How to Start Django Project with a Database(PostgreSQL)
+https://stackpython.medium.com/how-to-start-django-project-with-a-database-postgresql-aaa1d74659d8
+
+
+
+
+
+postgresql commandes
+
+psql -d database -U user -W Connects to a database under a specific user
+
+psql -h host -d database -U user -W Connect to a database that resides on another host
+
+
+psql -U user -h host “dbname=db sslmode=require” Use SSL mode for the connection
+
+\c dbname   Switch connection to a new database
+
+\l  list available databases
+
+\dt list available tables
+
+\d table_name   Describe table
+
+\dn list all the schemes currently connected
+
+SELECT version(); Current version of PostgreSQL
+
+\g   execute last command again
+
+\s  Display command history
+
+\s filename     Save the command history to a file
+
+\i filename     Execute psql commands from a file
+
+\e  edit command in your own editor
+
+\q exit shell
+
+
+
+createdb db_name -- create database in postgresql
+
+
+** sudo -u postgres psql
+postgres=# create database uniflow;
+postgres=# create user uniflowadmin with encrypted password 'uniflowadmin';
+postgres=# grant all privileges on database uniflow to uniflowadmin;
+
+
+.env
+
+DB_NAME=deli
+DB_USER=admindeli
+PWD=admindeli
+DB_PORT=5432
+DJ_SECRET_KEY='django-insecure-2_tg+el17a!ez6#ku(2#at7no9tn*1s6@u()4y7_^_uhs4y1lv'
+
+
+
+
+DATABASES = {
+        'default': {
+            'ENGINE': 'django.db.backends.postgresql',
+            'NAME': os.getenv('DB_NAME'),
+            'USER': os.getenv('DB_USER'),
+            'PASSWORD': os.getenv('PWD'),
+            'HOST': '127.0.0.1',
+            'PORT': os.getenv('DB_PORT'),
+        }
+}
+
+
+
+
+
+
+
+…or create a new repository on the command line
+ echo "# 4uni" >> README.md
+git init
+git add README.md
+git commit -m "first commit"
+git branch -M main
+git remote add origin https://github.com/ihdba/4uni.git
+git push -u origin main
+…or push an existing repository from the command line
+ git remote add origin https://github.com/ihdba/4uni.git
+git branch -M main
+git push -u origin main
+
+
+
+
+
+*** helping sites:
+
+
+https://learndjango.com/tutorials/django-file-and-image-uploads-tutorial
+
+
+
+Field.null
+
+If True, Django will store empty values as NULL in the database. Default is False.
+
+Note that empty string values will always get stored as empty strings, not as NULL. 
+Only use null=True for non-string fields such as integers, booleans and dates. 
+For both types of fields, you will also need to set blank=True if you wish 
+to permit empty values in forms, as the null parameter only affects 
+database storage (see blank).
+
+Avoid using null on string-based fields such as CharField and TextField 
+unless you have an excellent reason. If a string-based field has null=True, 
+that means it has two possible values for “no data”: NULL, and the empty string. 
+In most cases, it’s redundant to have two possible values for “no data;” 
+Django convention is to use the empty string, not NULL.
+Field.blank
+
+If True, the field is allowed to be blank. Default is False.
+
+Note that this is different than null. null is purely database-related, 
+whereas blank is validation-related. If a field has blank=True, 
+validation on Django’s admin site will allow entry of an empty value. 
+If a field has blank=False, the field will be required.
+Field.default
+
+The default value for the field. This can be a value or a callable object. 
+If callable it will be called every time a new object is created.
+
+
+ <!-- <a href="{% url 'product_update' product.id %}">[edit]</a> -->
+
+
+
+ Box shadow design
+ https://getcssscan.com/css-box-shadow-examples

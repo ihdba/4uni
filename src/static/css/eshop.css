@@ -1,0 +1,41 @@
+
+h1{
+    text-align: center;
+}
+
+.shop_container{
+    display: flex;
+    flex-flow: wrap;
+}
+
+
+/* Card css */
+.card{
+    width: 200px;
+    min-height: 200px;
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px, rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset;
+    display: flex;
+    flex-direction: column;
+    
+}
+
+.card_title{
+    font-size: 1.5rem;
+    font-weight: bold;
+}
+
+.card_description{
+    font-weight: 600;
+    color: gray;
+
+}
+
+.card_image{
+    width: 80%; /* or any custom size */
+    height: auto; 
+    align-self: center;
+    
+}
+
+
+/* End Card css */
