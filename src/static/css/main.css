@@ -17,7 +17,7 @@ html, body{
 
 
 .top_header{
-	background-color: #FFF8DC;
+	background-color: #657383;
   height: 40px;
   display: flex;
 }
@@ -39,12 +39,37 @@ html, body{
 
 
 .core_home{
-  background-image: url( '/static/images/main/greek-meze-dinner.jpg');
-  background-repeat: no-repeat;
+  /* background-image: url( '/static/images/main/olive_oil_1280.jpg'); */
+  background-color: #DADBDD;
   height: 100vh;
-  opacity: 0.3;
 }
 
+
+.ornament{
+  border: 1px solid red;
+  align-content: center;
+  height: 50px;
+  background-image: url( '/static/icons/1949840.jpg');
+}
+
+/* .img_ornament{
+  padding: 5px;
+  margin: 5px;
+  height: 50px;
+} */
+
+/* 
+.core_home:before{
+  content: "";
+  background-image: url( '/static/images/main/olive_oil_1280.jpg');
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  position: absolute;
+  opacity: 0.3;
+  z-index: -1;
+  display: flex;
+} */
 
 .br-b{
   border-bottom: 1px solid black;
@@ -98,6 +123,9 @@ html, body{
   justify-content: space-between;
 }
 
+.jcc{
+  justify-content: center;
+}
 
 .jcr{
   justify-content:right;
@@ -109,3 +137,6 @@ html, body{
 }
 
 
+.page_title{
+  color: #EB5406;
+}

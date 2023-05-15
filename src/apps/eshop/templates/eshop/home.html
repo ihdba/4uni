@@ -18,6 +18,12 @@
               <div class="card_description mb-1 tac">
                   {{ product.product_description }}
               </div>
+              <div class="card_price mb-1 tac">
+                Price: ${{ product.price }}
+              </div>
+              <div class="card_supplier mb-1 tac">
+                Supplier: {{ product.supplier }}
+              </div>
 
           </div>
         {% endfor %}

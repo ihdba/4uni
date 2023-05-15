@@ -1,5 +1,41 @@
 {% extends 'core/base.html' %}
 
+
+
 {% block content %}
-    <h2>Suppliers</h2>
+    
+
+  <h1 class="mb-2">Our Suppliers </h1>
+
+  <div class="shop_container">
+      {% for supplier in suppliers %}
+        <div class="card ml-2 jcsb mb-2">
+            <div class=" card_title mb-2 tac">
+              {{ supplier.supplier_name }}
+            </div>
+          
+            <!-- <img class="card_image" src=" media/{{ product.product_image }} " alt=" {{ product.product_name }}"> -->
+
+            <div class="card_description mb-1 tac">
+                Info: {{ supplier.supplier_info }}
+            </div>
+            <div class="card_price mb-1 tac">
+              email: {{ supplier.email }}
+            </div>
+            <div class="card_price mb-1 tac">
+                Our Supplier since: {{ supplier.registered | date:'Y' }}
+              </div>
+            
+
+        </div>
+      {% endfor %}
+</div>
+
+  
+
+
+
+
+  
 {% endblock content %}
+

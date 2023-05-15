@@ -372,3 +372,19 @@ If callable it will be called every time a new object is created.
 
  Box shadow design
  https://getcssscan.com/css-box-shadow-examples
+
+
+
+
+
+
+ERROR: django relation does not exist
+
+ This can happen when you delete the app and then create it again. 
+ So, you may have orphaned database tables in your database that are associated with the old version of the app.
+
+try the following:
+
+python manage.py migrate --fake app_name zero
+python manage.py makemigrations app_name
+python manage.py migrate

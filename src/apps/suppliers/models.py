@@ -7,7 +7,9 @@ from django.db import models
 class Supplier(models.Model):
 
     supplier_name = models.CharField("supplier's name", max_length=100, default='deli')
+    supplier_info = models.TextField(blank=True)
     email = models.EmailField()
+    registered = models.DateTimeField(auto_now_add=True, null=True)
 
 
     def __str__(self):
@@ -16,3 +18,8 @@ class Supplier(models.Model):
     class Meta:
         ordering = ["supplier_name"]
         verbose_name_plural = "Suppliers"
+
+
+
+
+

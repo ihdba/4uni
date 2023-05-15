@@ -6,8 +6,10 @@ from django.views.generic import ListView, CreateView, UpdateView
 from django.urls import reverse_lazy
 
 
-from .models import Product, Supplier
-from .forms import ProductForm, SupplierForm
+from .models import Product
+from .forms import ProductForm
+
+
 
 
 # def eshop(request):
